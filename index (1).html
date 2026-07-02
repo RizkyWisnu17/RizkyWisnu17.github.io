@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Nama Anda] — Teknik Instalasi Tenaga Listrik</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+       To add a new page/section link: copy one <li><a> line
+       and give the target section a matching id.
+  ========================================================= -->
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="#top" class="navbar__brand">[Nama Anda]</a>
+
+      <button class="navbar__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul class="navbar__menu" id="navMenu">
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#proyek">Proyek</a></li>
+          <li><a href="#pengalaman">Pengalaman</a></li>
+          <li><a href="#skill">Skill</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO
+       Swap the placeholder circle for a real photo by replacing
+       the <div class="hero__photo-placeholder"> block with:
+       <img src="images/profile.jpg" alt="Foto [Nama Anda]" class="hero__photo">
+  ========================================================= -->
+  <section class="hero" id="top">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow">Portofolio</p>
+        <h1>Halo, saya <span>[Nama Anda]</span></h1>
+        <p class="hero__role">Lulusan Teknik Instalasi Tenaga Listrik</p>
+        <p class="hero__lede">
+          Memahami instalasi listrik, pemeliharaan peralatan, dan penerapan K3 secara menyeluruh.
+          Siap berkontribusi di industri kelistrikan dengan ketelitian dan semangat belajar.
+        </p>
+        <div class="hero__cta">
+          <a href="#proyek" class="btn btn--primary">Lihat Proyek</a>
+          <a href="#kontak" class="btn btn--outline">Hubungi Saya</a>
+        </div>
+      </div>
+
+      <div class="hero__media">
+        <!-- Replace this placeholder with a real <img> when you have a photo -->
+        <div class="hero__photo-placeholder" aria-hidden="true">
+          <span>Foto Anda</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TENTANG (About)
+  ========================================================= -->
+  <section class="section" id="tentang">
+    <div class="container">
+      <p class="eyebrow">Tentang Saya</p>
+      <h2 class="section__title">Profil Singkat</h2>
+
+      <div class="about__grid">
+        <div class="about__copy">
+          <p>
+            Lulusan Teknik Instalasi Tenaga Listrik dengan pemahaman mendalam mengenai instalasi
+            listrik, pemeliharaan peralatan kelistrikan, dan penerapan K3 di lingkungan kerja.
+          </p>
+          <p>
+            Terbiasa bekerja sesuai standar PUIL, baik secara individu maupun dalam tim, dengan
+            ketelitian dan tanggung jawab sebagai prioritas utama.
+          </p>
+          <p>
+            Siap belajar dan berkembang di dunia industri kelistrikan, terbuka terhadap tantangan
+            teknis baru dan peluang untuk terus mengasah keterampilan.
+          </p>
+        </div>
+
+        <!-- Quick facts card. Add/remove rows freely. -->
+        <div class="info-card">
+          <div class="info-card__row">
+            <span class="info-card__label">Nama</span>
+            <span class="info-card__value">[Nama Anda]</span>
+          </div>
+          <div class="info-card__row">
+            <span class="info-card__label">Program Studi</span>
+            <span class="info-card__value">Teknik Instalasi Tenaga Listrik</span>
+          </div>
+          <div class="info-card__row">
+            <span class="info-card__label">Fokus</span>
+            <span class="info-card__value">Instalasi &amp; K3</span>
+          </div>
+          <div class="info-card__row">
+            <span class="info-card__label">Status</span>
+            <span class="info-card__value info-card__value--status">Siap Kerja</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PROYEK (Projects)
+       To add a new project: copy one <article class="card"> block
+       and edit the text/tags inside it.
+  ========================================================= =========================================================
+  -->
+  <section class="section section--alt" id="proyek">
+    <div class="container">
+      <p class="eyebrow">Portofolio</p>
+      <h2 class="section__title">Proyek</h2>
+
+      <div class="card-grid">
+
+        <!-- Project card 1 -->
+        <article class="card">
+          <!-- Optional project image — uncomment and set src when ready
+          <img src="images/proyek-1.jpg" alt="Deskripsi proyek 1" class="card__image">
+          -->
+          <h3 class="card__title">Pemasangan Instalasi Rumah — Program JABAR Caang</h3>
+          <p class="card__text">
+            Berpartisipasi dalam pemasangan instalasi listrik rumah masyarakat, meliputi pemasangan
+            kabel, sakelar, stop kontak, dan MCB, dengan memastikan seluruh instalasi sesuai standar
+            PUIL dan prosedur K3.
+          </p>
+          <ul class="tag-list">
+            <li class="tag">Instalasi Kabel</li>
+            <li class="tag">MCB</li>
+            <li class="tag">Standar PUIL</li>
+            <li class="tag">K3</li>
+          </ul>
+        </article>
+
+        <!-- Project card 2 -->
+        <article class="card">
+          <h3 class="card__title">Praktik Instalasi Listrik Rumah</h3>
+          <p class="card__text">
+            Melakukan pemasangan instalasi penerangan dan stop kontak, pengujian rangkaian, serta
+            troubleshooting sederhana pada instalasi rumah.
+          </p>
+          <ul class="tag-list">
+            <li class="tag">Penerangan</li>
+            <li class="tag">Pengujian Rangkaian</li>
+            <li class="tag">Troubleshooting</li>
+          </ul>
+        </article>
+
+        <!-- Add project card 3, 4, ... here by copying an <article class="card"> block -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PENGALAMAN (Experience)
+       To add a new entry: copy one <div class="timeline__item"> block.
+  ========================================================= -->
+  <section class="section" id="pengalaman">
+    <div class="container">
+      <p class="eyebrow">Riwayat</p>
+      <h2 class="section__title">Pengalaman</h2>
+
+      <div class="timeline">
+        <div class="timeline__item">
+          <p class="timeline__period">PKL</p>
+          <h3 class="timeline__title">Asisten Operator Gardu Induk</h3>
+          <p class="timeline__text">
+            Melakukan pemantauan kondisi peralatan gardu induk, mempelajari sistem proteksi dan
+            transformator daya, serta PMT dan PMS, sambil menerapkan prosedur K3 secara konsisten
+            dalam setiap kegiatan operasional.
+          </p>
+        </div>
+
+        <!-- Add more <div class="timeline__item"> blocks here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SKILL
+  ========================================================= -->
+  <section class="section section--alt" id="skill">
+    <div class="container">
+      <p class="eyebrow">Kompetensi</p>
+      <h2 class="section__title">Skill</h2>
+
+      <div class="skills__grid">
+        <div>
+          <h3 class="skills__subtitle">Hard Skills</h3>
+          <ul class="skill-list">
+            <li>Instalasi Listrik Tegangan Rendah</li>
+            <li>Penerapan K3 Kelistrikan</li>
+            <li>Membaca Gambar Teknik</li>
+            <li>Penggunaan Multimeter</li>
+            <li>Microsoft Office</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="skills__subtitle">Soft Skills</h3>
+          <ul class="tag-list">
+            <li class="tag">Komunikasi</li>
+            <li class="tag">Kerja Sama Tim</li>
+            <li class="tag">Problem Solving</li>
+            <li class="tag">Manajemen Waktu</li>
+            <li class="tag">Cepat Belajar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       KONTAK (Contact)
+  ========================================================= -->
+  <section class="section" id="kontak">
+    <div class="container">
+      <p class="eyebrow">Hubungi Saya</p>
+      <h2 class="section__title">Kontak</h2>
+
+      <div class="contact__grid">
+        <a class="contact-card" href="mailto:nama@email.com">
+          <span class="contact-card__label">Email</span>
+          <span class="contact-card__value">nama@email.com</span>
+        </a>
+        <a class="contact-card" href="https://wa.me/628xxxxxxxxxx" target="_blank" rel="noopener">
+          <span class="contact-card__label">WhatsApp</span>
+          <span class="contact-card__value">08xxxxxxxxxx</span>
+        </a>
+        <a class="contact-card" href="https://linkedin.com/in/namaanda" target="_blank" rel="noopener">
+          <span class="contact-card__label">LinkedIn</span>
+          <span class="contact-card__value">linkedin.com/in/namaanda</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 [Nama Anda]. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
