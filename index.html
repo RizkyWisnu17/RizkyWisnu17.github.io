@@ -3,214 +3,818 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio - Nama Anda</title>
-
+<title>[Nama Anda] — Teknik Instalasi Tenaga Listrik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  :root{
+    --bg: #0c1117;
+    --panel: #131a23;
+    --panel-alt: #19222d;
+    --line: #263242;
+    --line-soft: #1c2632;
+    --copper: #d98e45;
+    --amber: #f2b84b;
+    --text-hi: #edeff3;
+    --text-lo: #8b96a6;
+    --text-dim: #5b6675;
+    --ok: #4ade80;
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+    --f-display: 'Space Grotesk', sans-serif;
+    --f-mono: 'IBM Plex Mono', monospace;
+    --f-body: 'IBM Plex Sans', sans-serif;
+  }
 
-body{
-    background:#f4f4f4;
-    color:#333;
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text-hi);
+    font-family:var(--f-body);
     line-height:1.6;
-}
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+  }
 
-header{
-    background:#1f2937;
-    color:white;
-    padding:40px;
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+
+  ::selection{background:var(--copper);color:#0c1117;}
+
+  :focus-visible{
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .eyebrow{
+    font-family:var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--copper);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:16px;height:1px;
+    background:var(--copper);
+    display:inline-block;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 100;
+    background: rgba(12,17,23,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1040px;
+    margin:0 auto;
+    padding: 16px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .nav-brand{
+    font-family:var(--f-mono);
+    font-size:13px;
+    letter-spacing:0.06em;
+    color:var(--text-lo);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .nav-brand .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--ok);
+    box-shadow: 0 0 8px var(--ok);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;}
+    50%{opacity:0.35;}
+  }
+  nav.links{
+    display:flex;
+    gap: 28px;
+  }
+  nav.links a{
+    font-family:var(--f-mono);
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    color: var(--text-lo);
+    text-transform:uppercase;
+    position:relative;
+    padding: 4px 0;
+    transition: color .2s ease;
+  }
+  nav.links a:hover{ color: var(--text-hi); }
+  nav.links a::before{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:0%; height:1px;
+    background:var(--copper);
+    transition: width .25s ease;
+  }
+  nav.links a:hover::before{ width:100%; }
+  .nav-toggle{ display:none; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding: 168px 0 96px;
+    overflow:hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items:center;
+  }
+  .hero h1{
+    font-family:var(--f-display);
+    font-weight:700;
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    margin: 18px 0 14px;
+  }
+  .hero h1 span{ color: var(--copper); }
+  .hero .role{
+    font-family:var(--f-mono);
+    font-size: 15px;
+    color: var(--text-lo);
+    margin-bottom: 22px;
+  }
+  .hero p.lede{
+    max-width: 46ch;
+    color: var(--text-lo);
+    font-size: 15.5px;
+    margin-bottom: 34px;
+  }
+  .hero-cta{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--f-mono);
+    font-size:13px;
+    letter-spacing:0.03em;
+    padding: 13px 22px;
+    border-radius: 3px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition: all .2s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary{
+    background: var(--copper);
+    color: #0c1117;
+    font-weight:600;
+  }
+  .btn-primary:hover{ background: var(--amber); transform: translateY(-1px); }
+  .btn-ghost{
+    border-color: var(--line);
+    color: var(--text-hi);
+  }
+  .btn-ghost:hover{ border-color: var(--copper); color: var(--copper); }
+
+  /* single-line diagram */
+  .sld{
+    width:100%;
+    height:auto;
+    opacity: 0.95;
+  }
+  .sld path{
+    fill:none;
+    stroke: var(--line);
+    stroke-width: 1.5;
+  }
+  .sld .live{
+    stroke: var(--copper);
+    stroke-dasharray: 6 340;
+    animation: flow 5s linear infinite;
+  }
+  .sld .live2{
+    stroke: var(--amber);
+    stroke-dasharray: 4 260;
+    animation: flow2 4s linear infinite;
+  }
+  @keyframes flow{ to{ stroke-dashoffset: -346; } }
+  @keyframes flow2{ to{ stroke-dashoffset: -264; } }
+  .sld circle{ fill: var(--panel); stroke: var(--line); stroke-width:1.5; }
+  .sld .node-live{ fill: var(--copper); stroke:none; }
+  .sld text{
+    font-family: var(--f-mono);
+    fill: var(--text-dim);
+    font-size: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{
+    padding: 88px 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  section.reveal{
+    opacity:0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  section.reveal.in{
+    opacity:1;
+    transform:none;
+  }
+  .sec-head{
+    margin-bottom: 44px;
+  }
+  .sec-head h2{
+    font-family: var(--f-display);
+    font-size: clamp(26px, 3.4vw, 34px);
+    margin-top: 10px;
+    font-weight:600;
+  }
+
+  /* ---------- NAMEPLATE (Tentang) ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 40px;
+    align-items:start;
+  }
+  .plate{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 26px 24px;
+    position:relative;
+  }
+  .plate::before{
+    content:"";
+    position:absolute;
+    top:10px; left:10px; right:10px; bottom:10px;
+    border: 1px dashed var(--line);
+    border-radius: 3px;
+    pointer-events:none;
+  }
+  .plate-title{
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--text-dim);
+    text-transform:uppercase;
+    margin-bottom: 18px;
+  }
+  .plate-row{
+    display:flex;
+    justify-content:space-between;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+  }
+  .plate-row:last-child{ border-bottom:none; }
+  .plate-row .k{ color: var(--text-dim); }
+  .plate-row .v{ color: var(--text-hi); text-align:right; }
+  .plate-row .v.status{
+    color: var(--ok);
+    display:flex; align-items:center; gap:6px; justify-content:flex-end;
+  }
+  .plate-row .v.status::before{
+    content:"";
+    width:6px;height:6px;border-radius:50%;
+    background:var(--ok);
+    box-shadow:0 0 6px var(--ok);
+  }
+  .about-copy p{
+    color: var(--text-lo);
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  .about-copy p:first-of-type::first-letter{
+    font-family: var(--f-display);
+    font-size: 42px;
+    color: var(--copper);
+    float:left;
+    line-height:0.8;
+    margin: 6px 8px 0 0;
+    font-weight:700;
+  }
+
+  /* ---------- PANEL SCHEDULE (Proyek) ---------- */
+  .circuits{
+    display:grid;
+    gap: 18px;
+  }
+  .circuit{
+    background: var(--panel);
+    border:1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+    display:grid;
+    grid-template-columns: 96px 1fr;
+    gap: 22px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .circuit:hover{
+    border-color: var(--copper);
+    transform: translateX(2px);
+  }
+  .circuit-id{
+    font-family: var(--f-mono);
+    font-size: 12px;
+    color: var(--copper);
+    border-right: 1px solid var(--line);
+    padding-right: 18px;
+  }
+  .circuit-id .num{
+    display:block;
+    font-size: 26px;
+    color: var(--text-hi);
+    font-weight:600;
+    margin-bottom: 6px;
+  }
+  .circuit h3{
+    font-family: var(--f-display);
+    font-size: 19px;
+    font-weight:600;
+    margin-bottom: 8px;
+  }
+  .circuit p{
+    color: var(--text-lo);
+    font-size: 14.5px;
+    margin-bottom: 14px;
+  }
+  .tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--text-lo);
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- CONDUIT RUN (Pengalaman) ---------- */
+  .run{
+    position:relative;
+    padding-left: 34px;
+  }
+  .run::before{
+    content:"";
+    position:absolute;
+    left: 7px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: repeating-linear-gradient(
+      to bottom, var(--line) 0 6px, transparent 6px 11px
+    );
+  }
+  .junction{
+    position:relative;
+    padding-bottom: 34px;
+  }
+  .junction:last-child{ padding-bottom:0; }
+  .junction::before{
+    content:"";
+    position:absolute;
+    left: -34px; top: 4px;
+    width: 15px; height:15px;
+    border-radius:3px;
+    background: var(--panel);
+    border: 1.5px solid var(--copper);
+  }
+  .junction::after{
+    content:"";
+    position:absolute;
+    left: -29px; top: 9px;
+    width: 5px; height:5px;
+    border-radius:50%;
+    background: var(--copper);
+  }
+  .junction .period{
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    color: var(--text-dim);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    margin-bottom: 6px;
+  }
+  .junction h3{
+    font-family: var(--f-display);
+    font-size: 19px;
+    font-weight:600;
+    margin-bottom: 8px;
+  }
+  .junction p{
+    color: var(--text-lo);
+    font-size: 14.5px;
+    max-width: 62ch;
+  }
+
+  /* ---------- LOAD TABLE (Hard skills) ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items:start;
+  }
+  table.load{
+    width:100%;
+    border-collapse: collapse;
+    font-family: var(--f-mono);
+    font-size: 13px;
+  }
+  table.load thead th{
+    text-align:left;
+    color: var(--text-dim);
+    font-weight:500;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-size: 10.5px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  table.load tbody td{
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--text-hi);
+  }
+  table.load tbody tr:last-child td{ border-bottom:none; }
+  table.load td.no{ color: var(--text-dim); width:34px; }
+  table.load td.stat{ color: var(--ok); text-align:right; }
+  table.load td.stat::before{
+    content:"● ";
+  }
+
+  .soft-box{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px;
+  }
+  .soft-box .plate-title{ margin-bottom:16px; }
+  .soft-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 9px;
+  }
+  .soft-pills span{
+    font-family: var(--f-mono);
+    font-size: 12px;
+    padding: 7px 12px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--text-lo);
+  }
+
+  /* ---------- TERMINAL BLOCK (Kontak) ---------- */
+  .terminals{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .terminal{
+    background: var(--panel);
+    border:1px solid var(--line);
+    border-radius: 4px;
+    padding: 26px 20px;
     text-align:center;
-}
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .terminal:hover{
+    border-color: var(--copper);
+    transform: translateY(-3px);
+  }
+  .terminal .screw{
+    width: 30px; height:30px;
+    border-radius:50%;
+    border: 1.5px solid var(--copper);
+    margin: 0 auto 16px;
+    display:flex; align-items:center; justify-content:center;
+    color: var(--copper);
+    font-family: var(--f-mono);
+    font-size: 14px;
+  }
+  .terminal .label{
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform:uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+  .terminal .value{
+    font-size: 14px;
+    word-break: break-word;
+  }
 
-header h1{
-    font-size:40px;
-}
-
-header p{
-    margin-top:10px;
-}
-
-nav{
-    background:#111827;
-    padding:15px;
+  footer{
+    padding: 34px 0 50px;
     text-align:center;
-}
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:20px;
-}
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 760px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero{ padding: 130px 0 60px; }
+    .sld{ display:none; }
+    nav.links{
+      position: fixed;
+      top: 58px; left:0; right:0;
+      background: rgba(12,17,23,0.98);
+      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      padding: 18px 28px 22px;
+      gap: 16px;
+      display: none;
+    }
+    nav.links.open{ display:flex; }
+    .nav-toggle{
+      display:block;
+      background:none;
+      border: 1px solid var(--line);
+      color: var(--text-hi);
+      font-family: var(--f-mono);
+      font-size: 12px;
+      padding: 7px 12px;
+      border-radius: 3px;
+    }
+    .about-grid, .skills-grid{ grid-template-columns:1fr; }
+    .circuit{ grid-template-columns: 1fr; }
+    .circuit-id{ border-right:none; border-bottom:1px solid var(--line); padding-right:0; padding-bottom:12px; display:flex; align-items:baseline; gap:10px; }
+    .circuit-id .num{ margin-bottom:0; }
+    .terminals{ grid-template-columns:1fr; }
+  }
 
-section{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    margin-top:20px;
-    padding:30px;
-    border-radius:10px;
-}
-
-h2{
-    margin-bottom:15px;
-    color:#1f2937;
-}
-
-.card{
-    border-left:5px solid #2563eb;
-    background:#f9f9f9;
-    padding:20px;
-    margin-top:15px;
-}
-
-ul{
-    margin-left:20px;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    margin-top:30px;
-    background:#1f2937;
-    color:white;
-}
-
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+    html{ scroll-behavior:auto; }
+  }
 </style>
-
 </head>
 <body>
 
-<header>
-
-<h1>Nama Anda</h1>
-
-<p>Lulusan Teknik Instalasi Tenaga Listrik</p>
-
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><span class="dot"></span> PANEL&nbsp;AKTIF — REV.01</div>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">MENU</button>
+    <nav class="links" id="navLinks">
+      <a href="#tentang">Tentang</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#skill">Skill</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </div>
 </header>
 
-<nav>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Main Panel — Data Diri</p>
+      <h1>[Nama<br>Anda]<span>.</span></h1>
+      <p class="role">Lulusan Teknik Instalasi Tenaga Listrik</p>
+      <p class="lede">
+        Memahami instalasi listrik, pemeliharaan peralatan, dan penerapan K3 secara menyeluruh —
+        siap tersambung ke tim mana pun, di lapangan maupun di ruang panel.
+      </p>
+      <div class="hero-cta">
+        <a href="#proyek" class="btn btn-primary">Lihat Proyek</a>
+        <a href="#kontak" class="btn btn-ghost">Hubungi Saya</a>
+      </div>
+    </div>
+    <div>
+      <svg class="sld" viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M40 30 H280"></path>
+        <path class="live" d="M40 30 H280"></path>
+        <circle cx="40" cy="30" r="5"></circle>
+        <circle cx="40" cy="30" r="2" class="node-live"></circle>
+        <text x="12" y="20">SRC</text>
 
-<a href="#tentang">Tentang</a>
-<a href="#proyek">Proyek</a>
-<a href="#pengalaman">Pengalaman</a>
-<a href="#skill">Skill</a>
-<a href="#kontak">Kontak</a>
+        <path d="M90 30 V70"></path>
+        <path d="M160 30 V70"></path>
+        <path d="M230 30 V70"></path>
+        <path class="live2" d="M90 30 V70"></path>
 
-</nav>
+        <rect x="76" y="70" width="28" height="16" rx="2" fill="none" stroke="#263242" stroke-width="1.5"></rect>
+        <rect x="146" y="70" width="28" height="16" rx="2" fill="none" stroke="#263242" stroke-width="1.5"></rect>
+        <rect x="216" y="70" width="28" height="16" rx="2" fill="none" stroke="#263242" stroke-width="1.5"></rect>
+        <text x="80" y="102">CCT‑01</text>
+        <text x="150" y="102">CCT‑02</text>
+        <text x="220" y="102">CCT‑03</text>
 
-<section id="tentang">
+        <path d="M90 86 V150"></path>
+        <path d="M160 86 V190"></path>
+        <path d="M230 86 V150"></path>
 
-<h2>Tentang Saya</h2>
+        <path d="M90 150 H230"></path>
+        <circle cx="90" cy="150" r="3.5"></circle>
+        <circle cx="230" cy="150" r="3.5"></circle>
 
-<p>
-Lulusan Teknik Instalasi Tenaga Listrik yang memiliki pengetahuan mengenai instalasi listrik,
-pemeliharaan peralatan listrik, penerapan K3, serta mampu bekerja secara individu maupun tim.
-Siap belajar dan berkembang di dunia industri.
-</p>
-
+        <path d="M160 190 V230"></path>
+        <circle cx="160" cy="230" r="6"></circle>
+        <text x="118" y="250">LOAD — SIAP KERJA</text>
+      </svg>
+    </div>
+  </div>
 </section>
 
-<section id="proyek">
-
-<h2>Proyek</h2>
-
-<div class="card">
-
-<h3>Pemasangan Instalasi Rumah - Program JABAR Caang</h3>
-
-<p>
-Berpartisipasi dalam pemasangan instalasi listrik rumah masyarakat,
-meliputi pemasangan kabel, sakelar, stop kontak, MCB,
-serta memastikan instalasi sesuai standar PUIL dan prosedur K3.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Praktik Instalasi Listrik Rumah</h3>
-
-<p>
-Melakukan pemasangan instalasi penerangan, stop kontak,
-pengujian rangkaian, serta troubleshooting sederhana
-pada instalasi rumah.
-</p>
-
-</div>
-
+<section id="tentang" class="reveal">
+  <div class="wrap about-grid">
+    <div class="plate">
+      <p class="plate-title">Nameplate</p>
+      <div class="plate-row"><span class="k">Nama</span><span class="v">[Nama Anda]</span></div>
+      <div class="plate-row"><span class="k">Program Studi</span><span class="v">Teknik Instalasi<br>Tenaga Listrik</span></div>
+      <div class="plate-row"><span class="k">Kompetensi</span><span class="v">Instalasi &amp; K3</span></div>
+      <div class="plate-row"><span class="k">Status</span><span class="v status">Siap Kerja</span></div>
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow" style="margin-bottom:14px">Tentang Saya</p>
+      <p>
+        Lulusan Teknik Instalasi Tenaga Listrik dengan pemahaman mendalam mengenai instalasi listrik,
+        pemeliharaan peralatan kelistrikan, dan penerapan K3 di lingkungan kerja.
+      </p>
+      <p>
+        Terbiasa bekerja sesuai standar PUIL, baik secara individu maupun dalam tim, dengan
+        ketelitian dan tanggung jawab sebagai prioritas utama.
+      </p>
+      <p>
+        Siap belajar dan berkembang di dunia industri kelistrikan, terbuka terhadap tantangan
+        teknis baru dan peluang untuk terus mengasah keterampilan.
+      </p>
+    </div>
+  </div>
 </section>
 
-<section id="pengalaman">
-
-<h2>Pengalaman</h2>
-
-<div class="card">
-
-<h3>PKL - Asisten Operator Gardu Induk</h3>
-
-<p>
-Melakukan pemantauan kondisi peralatan gardu induk,
-mempelajari sistem proteksi, transformator daya,
-PMT, PMS, serta menerapkan prosedur K3
-dalam kegiatan operasional.
-</p>
-
-</div>
-
+<section id="proyek" class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Panel Schedule</p>
+      <h2>Proyek</h2>
+    </div>
+    <div class="circuits">
+      <div class="circuit">
+        <div class="circuit-id"><span class="num">01</span>PROYEK</div>
+        <div>
+          <h3>Pemasangan Instalasi Rumah — Program JABAR Caang</h3>
+          <p>
+            Berpartisipasi dalam pemasangan instalasi listrik rumah masyarakat, meliputi pemasangan
+            kabel, sakelar, stop kontak, dan MCB, dengan memastikan seluruh instalasi sesuai standar
+            PUIL dan prosedur K3.
+          </p>
+          <div class="tags">
+            <span class="tag">Instalasi Kabel</span>
+            <span class="tag">MCB</span>
+            <span class="tag">Standar PUIL</span>
+            <span class="tag">K3</span>
+          </div>
+        </div>
+      </div>
+      <div class="circuit">
+        <div class="circuit-id"><span class="num">02</span>PROYEK</div>
+        <div>
+          <h3>Praktik Instalasi Listrik Rumah</h3>
+          <p>
+            Melakukan pemasangan instalasi penerangan dan stop kontak, pengujian rangkaian, serta
+            troubleshooting sederhana pada instalasi rumah.
+          </p>
+          <div class="tags">
+            <span class="tag">Penerangan</span>
+            <span class="tag">Pengujian Rangkaian</span>
+            <span class="tag">Troubleshooting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="skill">
-
-<h2>Hard Skills</h2>
-
-<ul>
-
-<li>Instalasi Listrik Tegangan Rendah</li>
-<li>Penerapan K3 Kelistrikan</li>
-<li>Membaca Gambar Teknik</li>
-<li>Penggunaan Multimeter</li>
-<li>Microsoft Office</li>
-
-</ul>
-
-<br>
-
-<h2>Soft Skills</h2>
-
-<ul>
-
-<li>Komunikasi</li>
-<li>Kerja Sama Tim</li>
-<li>Problem Solving</li>
-<li>Manajemen Waktu</li>
-<li>Cepat Belajar</li>
-
-</ul>
-
+<section id="pengalaman" class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Conduit Run</p>
+      <h2>Pengalaman</h2>
+    </div>
+    <div class="run">
+      <div class="junction">
+        <p class="period">PKL</p>
+        <h3>Asisten Operator Gardu Induk</h3>
+        <p>
+          Melakukan pemantauan kondisi peralatan gardu induk, mempelajari sistem proteksi dan
+          transformator daya, serta PMT dan PMS, sambil menerapkan prosedur K3 secara konsisten
+          dalam setiap kegiatan operasional.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="kontak">
-
-<h2>Kontak</h2>
-
-<p>Email : nama@email.com</p>
-
-<p>WhatsApp : 08xxxxxxxxxx</p>
-
-<p>LinkedIn : linkedin.com/in/namaanda</p>
-
+<section id="skill" class="reveal">
+  <div class="wrap skills-grid">
+    <div>
+      <div class="sec-head" style="margin-bottom:24px">
+        <p class="eyebrow">Load Table</p>
+        <h2>Hard Skills</h2>
+      </div>
+      <table class="load">
+        <thead>
+          <tr><th class="no">No</th><th>Kompetensi</th><th style="text-align:right">Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="no">01</td><td>Instalasi Listrik Tegangan Rendah</td><td class="stat">Aktif</td></tr>
+          <tr><td class="no">02</td><td>Penerapan K3 Kelistrikan</td><td class="stat">Aktif</td></tr>
+          <tr><td class="no">03</td><td>Membaca Gambar Teknik</td><td class="stat">Aktif</td></tr>
+          <tr><td class="no">04</td><td>Penggunaan Multimeter</td><td class="stat">Aktif</td></tr>
+          <tr><td class="no">05</td><td>Microsoft Office</td><td class="stat">Aktif</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="soft-box">
+        <p class="plate-title">Kontrol Tambahan — Soft Skills</p>
+        <div class="soft-pills">
+          <span>Komunikasi</span>
+          <span>Kerja Sama Tim</span>
+          <span>Problem Solving</span>
+          <span>Manajemen Waktu</span>
+          <span>Cepat Belajar</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer>
+<section id="kontak" class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Terminal Block</p>
+      <h2>Kontak</h2>
+    </div>
+    <div class="terminals">
+      <a class="terminal" href="mailto:nama@email.com">
+        <div class="screw">@</div>
+        <div class="label">Email</div>
+        <div class="value">nama@email.com</div>
+      </a>
+      <a class="terminal" href="https://wa.me/628xxxxxxxxxx" target="_blank" rel="noopener">
+        <div class="screw">W</div>
+        <div class="label">WhatsApp</div>
+        <div class="value">08xxxxxxxxxx</div>
+      </a>
+      <a class="terminal" href="https://linkedin.com/in/namaanda" target="_blank" rel="noopener">
+        <div class="screw">in</div>
+        <div class="label">LinkedIn</div>
+        <div class="value">linkedin.com/in/namaanda</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-© 2026 Nama Anda
+<footer>© 2026 [Nama Anda] — Panel Rev. 01 — Diagram Kompetensi Kelistrikan</footer>
 
-</footer>
+<script>
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('section.reveal').forEach(s=>io.observe(s));
+
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', ()=>{
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=> navLinks.classList.remove('open'));
+  });
+</script>
 
 </body>
-  </html>
+</html>
