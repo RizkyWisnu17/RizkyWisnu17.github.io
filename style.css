@@ -208,7 +208,7 @@ img{
 }
 
 /* Photo placeholder — delete this block once a real <img> is added */
-.hero__photo-placeholder{
+/*.hero__photo-placeholder{
   aspect-ratio: 1 / 1;
   border-radius: var(--radius);
   background: var(--color-accent-soft);
@@ -219,7 +219,7 @@ img{
   color: var(--color-accent);
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 14px;*/
 }
 
 .hero__photo{
@@ -227,6 +227,7 @@ img{
   aspect-ratio: 1 / 1;
   object-fit: cover;
   box-shadow: var(--shadow);
+  object-position: center top;
 }
 
 /* =============================================================
